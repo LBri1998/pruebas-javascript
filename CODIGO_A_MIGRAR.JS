@@ -1,4 +1,66 @@
-// Algoritmo menu
+main()
+
+function main(){
+
+    const nombre = prompt("Hola profe, como te llamas?")
+    alert("Bienvenido/a ", nombre, "!") 
+
+    let flag_salida = false
+    
+    do {
+        alert("por favor elije una opcion del menu y escribi el numero correspondiente:")
+
+        let chosen_option = menu_y_socilitud_valor()
+
+        switch(chosen_option){
+            case "1": 
+                ver_notas()
+                break
+
+            case "2":
+                nuevo_alumno()
+                break
+
+			case "3":
+				ver_promedio_general()
+                break
+
+			case "4":
+				alert("Bye Bye!")
+				flag_salida = true
+                break
+				
+			default:
+				prompt("Debes seleccionar una opción válida")
+                break
+
+
+        }
+
+    } while (flag_salida);
+
+    
+
+}
+
+
+function menu_y_socilitud_valor(){
+    const chosen_option = prompt(
+        "1: Ver notas de alumno" +
+        " 2: Ingresar nuevo alumno"  +
+        " 3: Ver promedio del curso" +
+        " 4: Salir"
+    )
+    return chosen_option
+}	
+
+
+// 	Leer numero_seleccionado
+
+
+
+
+// Algoritmo menu DONEE
 	
 // 	Escribir "Hola profe, cómo te llamás?"
 	
@@ -84,6 +146,3 @@
 // Funcion ver_promedio_general
 // 	Escribir "Esta función aún está en construcción"
 // FinFuncion
-
-
-	
