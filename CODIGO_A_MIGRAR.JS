@@ -5,11 +5,11 @@ function main(){
     const nombre = prompt("Hola profe, como te llamas?")
     alert("Bienvenido/a ", nombre, "!") 
 
-    let flag_salida = false
+    let flag_salida = true
     
     do {
         alert("por favor elije una opcion del menu y escribi el numero correspondiente:")
-
+        
         let chosen_option = menu_y_socilitud_valor()
 
         switch(chosen_option){
@@ -27,21 +27,23 @@ function main(){
 
 			case "4":
 				alert("Bye Bye!")
-				flag_salida = true
+				flag_salida = false
                 break
 				
 			default:
-				prompt("Debes seleccionar una opción válida")
-                break
-
-
+				alert("Debes seleccionar una opción válida")
         }
 
-    } while (flag_salida);
-
-    
-
+    } while (flag_salida);    
 }
+
+    //FALTA CREAR LAS FUNCIONES:
+    // ver_notas
+    // nuevo_alumno
+    // ver_promedio_general
+    // funciones dummy, solo muestran un alert diciendo "en construccion"
+
+    //LUEGO DE HABER CREADO LAS FUNCIONES, PODEMOS MIGRAR LO ANTIGUO DE LA FUNCION nuevo_alumno
 
 
 function menu_y_socilitud_valor(){
@@ -54,11 +56,35 @@ function menu_y_socilitud_valor(){
     return chosen_option
 }	
 
+function ver_notas(){
+    alert("Esta funcion aun esta en contruccion")
+}
+
+function nuevo_alumno(){
+    const nombre_alumno = prompt("Dime el nombre del alumno")
+
+    const notes = new Array(3); 
+    
+    for (let index = 0; index < 3; index++) {
+        notes[index] = prompt("Dime la nota ", index,":");
+    }
+    alert(nombre_alumno + " tiene las siguientes notas: " + notes)
+}
+
+
+function ver_promedio_general(){
+    alert("Esta funcion aun esta en contruccion")
+}
+
+
+
+
+
+
+
+
 
 // 	Leer numero_seleccionado
-
-
-
 
 // Algoritmo menu DONEE
 	
