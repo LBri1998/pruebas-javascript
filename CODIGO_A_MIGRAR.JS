@@ -1,9 +1,11 @@
-main()
+//AQUI DECLARAMOS VARIABLES GLOBALES A TODO EL PROGRAMA
+var listado_alumnos = []
 
+//AQUI ESTA LA FUNCION PRINCIPAL, LA QUE MARCA EL COMIENZO Y FIN DE LA EJECUCION DEL PROGRAMA
 function main(){
 
     const nombre = prompt("Hola profe, como te llamas?")
-    alert("Bienvenido/a ", nombre, "!") 
+    alert("Bienvenido/a " + nombre + "!") 
 
     let flag_salida = true
     
@@ -34,36 +36,47 @@ function main(){
 				alert("Debes seleccionar una opción válida")
         }
 
-    } while (flag_salida);    
+    } while (flag_salida); 
 }
 
 
+//FUNCION PARA MOSTRAR MENU Y PEDIRLE AL USUARIO UNA OPCION
 function menu_y_socilitud_valor(){
     const chosen_option = prompt(
-        "1: Ver notas de alumno" +
-        " 2: Ingresar nuevo alumno"  +
-        " 3: Ver promedio del curso" +
-        " 4: Salir"
+        "1: Ver notas de alumno \n" +
+        "2: Ingresar nuevo alumno \n"  +
+        "3: Ver promedio del curso \n" +
+        "4: Salir"
     )
     return chosen_option
 }	
 
+//FUNCION PARA VER NOTAS DE LOS ALUMNOS
 function ver_notas(){
-    alert("Esta funcion aun esta en contruccion")
+    alert(listado_alumnos)
+
 }
 
+//FUNCION PARA CARGAR NUEVO ALUMNO
 function nuevo_alumno(){
     const nombre_alumno = prompt("Dime el nombre del alumno")
 
     const notes = new Array(3); 
 
     for (let index = 0; index < 3; index++) {
-        notes[index] = prompt("Dime la nota ", index,":");
+        notes[index] = prompt("Dime la nota " + (index + 1) + ":");
     }
     alert(nombre_alumno + " tiene las siguientes notas: " + notes)
+    
+
+    //sumar nuevo alumno al listado global
+    listado_alumnos.push(nombre_alumno+notes)
 }
 
-
+//FUNCION PARA CALCULAR Y MOSTRAR EL PROMEDIO GENERAL DEL CURSO
 function ver_promedio_general(){
     alert("Esta funcion aun esta en contruccion")
 }
+
+//INCOVACION DE LA FUNCION PRINCIPAL, AQUI ES DONDE COMIENZA A FUNCIONAR EL PROGRAMA
+main()
