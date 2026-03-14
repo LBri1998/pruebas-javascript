@@ -1,5 +1,18 @@
 //AQUI DECLARAMOS VARIABLES GLOBALES A TODO EL PROGRAMA
-var listado_alumnos = []
+const listado_alumnos = {
+    "pepe": {
+        name: "Pepe",
+        notes: [7, 8, 9]
+    },
+    "maria": {
+        name: "Maria",
+        notes: [6, 7, 8]
+    },
+    "juan": {
+        name: "Juan",
+        notes: [5, 6, 7]
+    }
+}
 
 //AQUI ESTA LA FUNCION PRINCIPAL, LA QUE MARCA EL COMIENZO Y FIN DE LA EJECUCION DEL PROGRAMA
 function main(){
@@ -53,7 +66,23 @@ function menu_y_socilitud_valor(){
 
 //FUNCION PARA VER NOTAS DE LOS ALUMNOS
 function ver_notas(){
-    alert(listado_alumnos)
+
+    let alumno_encontrado = undefined
+
+    do {
+        let nombre_alumno_que_busca = prompt("Dime el nombre del alumno que estas buscando")
+
+        nombre_alumno_que_busca = nombre_alumno_que_busca.toLowerCase()
+
+        alumno_encontrado = listado_alumnos[nombre_alumno_que_busca]
+
+        if(!alumno_encontrado){
+            alert("No encontre al alumno " + nombre_alumno_que_busca + ", por favor intenta de nuevo")
+        }
+
+    } while (!alumno_encontrado)
+
+    alert("Alumno: " + alumno_encontrado.name + " Notas: " + alumno_encontrado.notes)
 
 }
 
@@ -67,13 +96,21 @@ function nuevo_alumno(){
         notes[index] = prompt("Dime la nota " + (index + 1) + ":");
     }
     alert(nombre_alumno + " tiene las siguientes notas: " + notes)
-    
 
-    //sumar nuevo alumno al listado global
-    listado_alumnos.push(nombre_alumno+notes)
+    //MI OBJETO:
+    const alumno = {
+        name: nombre_alumno,
+        notes: notes
+    }
+
+    //CONVIERTO EL NOMBRE A MINUSCULA PARA QUE SEA MAS FACIL DE BUSCAR EN MI LISTADO
+    const nombre_minuscula = nombre_alumno.toLowerCase()
+
+    //AGREGO A MI LISTA EL ALUMNO
+    listado_alumnos[nombre_minuscula] = alumno
 }
 
-//FUNCION PARA CALCULAR Y MOSTRAR EL PROMEDIO GENERAL DEL CURSO
+//FUNCION PARA CALCULAR `Y MOSTRAR EL PROMEDIO GENERAL DEL CURSO
 function ver_promedio_general(){
     alert("Esta funcion aun esta en contruccion")
 }
