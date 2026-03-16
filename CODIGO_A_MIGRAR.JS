@@ -2,15 +2,18 @@
 const listado_alumnos = {
     "pepe": {
         name: "Pepe",
-        notes: [7, 8, 9]
+        notes: [7, 8, 9],
+        average: 8
     },
     "maria": {
         name: "Maria",
-        notes: [6, 7, 8]
+        notes: [6, 7, 8],
+        average: 7
     },
     "juan": {
         name: "Juan",
-        notes: [5, 6, 7]
+        notes: [5, 6, 7],
+        average: 6
     }
 }
 
@@ -82,7 +85,7 @@ function ver_notas(){
 
     } while (!alumno_encontrado)
 
-    alert("Alumno: " + alumno_encontrado.name + " Notas: " + alumno_encontrado.notes)
+    alert("Alumno: " + alumno_encontrado.name + " Notas: " + alumno_encontrado.notes + " Promedio: " + alumno_encontrado.average)
 
 }
 
@@ -92,16 +95,24 @@ function nuevo_alumno(){
 
     const notes = new Array(3); 
 
+    let sum_notes = 0
+
     for (let index = 0; index < 3; index++) {
-        notes[index] = prompt("Dime la nota " + (index + 1) + ":");
+        let note = prompt("Dime la nota " + (index + 1) + ":");
+        note = parseFloat(note)
+        sum_notes += note
+        notes[index] = note
+
     }
-    alert(nombre_alumno + " tiene las siguientes notas: " + notes)
 
     //MI OBJETO:
     const alumno = {
         name: nombre_alumno,
-        notes: notes
+        notes: notes,
+        average: parseFloat((sum_notes/3).toFixed(2))
     }
+
+    alert(alumno.name + " tiene las siguientes notas: " + alumno.notes + "\n Y promedio de: " + alumno.average)
 
     //CONVIERTO EL NOMBRE A MINUSCULA PARA QUE SEA MAS FACIL DE BUSCAR EN MI LISTADO
     const nombre_minuscula = nombre_alumno.toLowerCase()
@@ -112,7 +123,18 @@ function nuevo_alumno(){
 
 //FUNCION PARA CALCULAR `Y MOSTRAR EL PROMEDIO GENERAL DEL CURSO
 function ver_promedio_general(){
-    alert("Esta funcion aun esta en contruccion")
+
+    const alumnos_en_lista = Object.values(listado_alumnos)
+
+    let suma = 0
+
+    for(let index = 0 ; index < alumnos_en_lista.length; index ++){
+        suma += alumnos_en_lista[index].average
+    } 
+
+    const average_course = parseFloat(suma / alumnos_en_lista.length).toFixed(2)
+    
+    alert("El promedio del curso general es: " + average_course)
 }
 
 //INCOVACION DE LA FUNCION PRINCIPAL, AQUI ES DONDE COMIENZA A FUNCIONAR EL PROGRAMA
