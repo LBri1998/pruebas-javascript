@@ -35,6 +35,7 @@ Así que vas a tener que usar un parser para pasarlo a flotante (numero con coma
 
 Ej:
 
+```javascript
 function main(){
     // TODO EL CODIGO TIENE QUE ESTAR ACÁ
 
